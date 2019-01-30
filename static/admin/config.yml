@@ -24,7 +24,7 @@ collections:
     folder: "src/pages/photos"
     create: true
     fields:
-      - {label: "Photo Submitted By", name: "submittedBy", widget: "string"}
+      - {label: "Photo Submitted By", name: "title", widget: "string"}
       - {label: "Date Photo Taken", name: "dateTaken", widget: "datetime"}
       - {label: "Published Date", name: "datePublished", widget: "datetime"}
       - {label: "Image URL", name: "imageSource", widget: "string"}
