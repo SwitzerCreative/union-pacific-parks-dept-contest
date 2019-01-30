@@ -18,6 +18,16 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+  
+  - name: "photos"
+    label: "Photos"
+    folder: "src/pages/photos"
+    create: true
+    fields:
+      - {label: "Photo Submitted By", name: "submittedBy", widget: "string"}
+      - {label: "Date Photo Taken", name: "dateTaken", widget: "datetime"}
+      - {label: "Published Date", name: "datePublished", widget: "datetime"}
+      - {label: "Image URL", name: "imageSource", widget: "string"}
 
   - name: "pages"
     label: "Pages"
