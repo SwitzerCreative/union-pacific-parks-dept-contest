@@ -24,18 +24,13 @@ export default class MainPage extends React.Component {
                 >
                   <p>
                     <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title} - {post.frontmatter.imageSource}
+                      {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.dateTaken}</small>
                   </p>
                   <p>
-                    Here is where the excerpt was.
+                    <img src={post.frontmatter.imageSource} />
                     <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
+                    <small>{post.frontmatter.dateTaken}</small>
                   </p>
                 </div>
               ))}
@@ -56,7 +51,6 @@ MainPage.propTypes = {
 
 export const pageQuery = graphql`
   query MainQuery {
-    {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
         filter: { frontmatter: { templateKey: { eq: "photo-upload" } }}
@@ -77,5 +71,4 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
-`
+  `

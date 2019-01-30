@@ -13,7 +13,7 @@ export default class IndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+              <h1 className="has-text-weight-bold is-size-2">Photos!</h1>
             </div>
             {posts
               .map(({ node: post }) => (
@@ -26,16 +26,11 @@ export default class IndexPage extends React.Component {
                     <Link className="has-text-primary" to={post.fields.slug}>
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
                   </p>
                   <p>
-                    {post.excerpt}
+                    <img src={post.frontmatter.imageSource} />
                     <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
+                    <small>{post.frontmatter.dateTaken}</small>
                   </p>
                 </div>
               ))}
@@ -58,11 +53,10 @@ export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
+      filter: { frontmatter: { templateKey: { eq: "photo-upload" } }}
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
           id
           fields {
             slug
@@ -70,7 +64,8 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            imageSource
+            dateTaken(formatString: "MMMM DD, YYYY")
           }
         }
       }

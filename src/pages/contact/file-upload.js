@@ -80,7 +80,7 @@ export default class Contact extends React.Component {
               />
               <span className="file-cta">
                 <span className="file-label">
-                  Choose a file…
+                  Choose your photo file...
                 </span>
               </span>
             </label>

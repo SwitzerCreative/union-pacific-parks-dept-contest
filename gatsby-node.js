@@ -29,7 +29,9 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    var posts = result.data.allMarkdownRemark.edges;
+
+    posts = posts.filter(p => p.node.frontmatter.templateKey !== 'photo-upload');
 
     posts.forEach(edge => {
       const id = edge.node.id

@@ -1,4 +1,5 @@
 ---
+templateKey: photo-upload
 title: Ron Weasley
 dateTaken: 2019-01-23T19:55:46.899Z
 datePublished: 2019-01-30T19:55:51.814Z

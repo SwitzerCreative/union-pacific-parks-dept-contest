@@ -1,4 +1,5 @@
 ---
+templateKey: photo-upload
 title: Hermoine Granger
 dateTaken: 2019-01-17T06:52:58.878Z
 datePublished: 2019-01-29T19:54:58.888Z
