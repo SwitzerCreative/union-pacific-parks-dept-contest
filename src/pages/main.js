@@ -24,13 +24,13 @@ export default class MainPage extends React.Component {
                 >
                   <p>
                     <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
+                      {post.frontmatter.title} - {post.frontmatter.imageSource}
                     </Link>
                     <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
+                    <small>{post.frontmatter.dateTaken}</small>
                   </p>
                   <p>
-                    {post.excerpt}
+                    Here is where the excerpt was.
                     <br />
                     <br />
                     <Link className="button is-small" to={post.fields.slug}>
@@ -56,21 +56,23 @@ MainPage.propTypes = {
 
 export const pageQuery = graphql`
   query MainQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] },
+        filter: { frontmatter: { templateKey: { eq: "photo-upload" } }}
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              templateKey
+              imageSource
+              dateTaken(formatString: "MMMM DD, YYYY")
+            }
           }
         }
       }
